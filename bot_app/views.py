@@ -72,7 +72,6 @@ You can give me the following commands:
             #     )
 
             print("Sent message is : ",message.sid)
-            print(request.POST)
             responded = True
 
         elif incoming_msg == 'cat':
