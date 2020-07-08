@@ -71,7 +71,7 @@ You can give me the following commands:
             #         to='whatsapp:+918981181552'
             #     )
 
-            print("Sent message is : ",message.sid)
+            #print("Sent message is : ",message.sid)
             responded = True
 
         elif incoming_msg == 'cat':
