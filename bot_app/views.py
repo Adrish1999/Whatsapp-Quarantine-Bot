@@ -14,6 +14,7 @@ def index(request):
     if request.method == 'POST':
         # retrieve incoming message from POST request in lowercase
         print(type(request.POST))
+        print(request.POST.keys())
         print(request.POST)
         incoming_msg = request.POST['Body'].lower()
 
