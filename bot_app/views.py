@@ -14,7 +14,8 @@ def index(request):
     if request.method == 'POST':
         # retrieve incoming message from POST request in lowercase
         print(request.POST)
-        
+        print(request.POST['From'])
+        print(type(request.POST['From']))
         incoming_msg = request.POST['Body'].lower()
 
         # create Twilio XML response
@@ -44,6 +45,14 @@ You can give me the following commands:
             msg.body(response)
             responded = True
 
+        elif 'Latitude' in request.POST.keys():
+            lat = request.POST['Latitude']
+            longi = request.POST['Longitude']
+            response = "You have just sent your live location , "+"Your latitude is "+str(lat)+" and your longitude is "+str(longi)
+            msg.body(response)
+            responded = True
+            print("Location message received")
+
         elif incoming_msg == 'quote':
             # returns a quote
             r = requests.get('https://api.quotable.io/random')
@@ -59,19 +68,19 @@ You can give me the following commands:
             responded = True
 
         elif incoming_msg == 'location':
-            # account_sid = 'ACe1d82834112b7773eda898b5cec7983f'
-            # auth_token = '37e1882b99efb9a361257631a3b4d69e'
-            # client = Client(account_sid, auth_token)
+            account_sid = 'ACe1d82834112b7773eda898b5cec7983f'
+            auth_token = '37e1882b99efb9a361257631a3b4d69e'
+            client = Client(account_sid, auth_token)
 
-            # message = client.messages \
-            #     .create(
-            #         from_='whatsapp:+14155238886',
-            #         body='Twilio HQ',
-            #         persistent_action=['geo:37.787890,-122.391664|375 Beale St'],
-            #         to='whatsapp:+918981181552'
-            #     )
+            message = client.messages \
+                .create(
+                    from_='whatsapp:+14155238886',
+                    body='Twilio HQ',
+                    persistent_action=['geo:37.787890,-122.391664|375 Beale St'],
+                    to=request.POST['From']
+                )
 
-            #print("Sent message is :",message.sid)
+            print("Sent message is :",message.sid)
             responded = True
 
         elif incoming_msg == 'cat':
