@@ -14,8 +14,7 @@ def index(request):
     if request.method == 'POST':
         # retrieve incoming message from POST request in lowercase
         print(request.POST)
-        print(request.POST['From'])
-        print(type(request.POST['From']))
+        
         incoming_msg = request.POST['Body'].lower()
 
         # create Twilio XML response
