@@ -1,8 +1,6 @@
 # Quarantine Bot
 WhatsApp bot powered by Twilio API to get through the quarantine. Latest COVID19 statistics, world news, inspirational quotes and cat photos.
 
-## Building Your Own Bot
-Read my tutorial [here](https://dev.to/zeyu2001/i-built-a-python-whatsapp-bot-to-keep-me-sane-during-quarantine-nph)!
 
 ## How to Deploy
 1. Clone this repository and deploy it on any Django-friendly hosting service like [PythonAnywhere](https://pythonanywhere.com). Use `$ pip install -r requirements.txt` to install the program dependencies.
