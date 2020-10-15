@@ -27,7 +27,6 @@ DEBUG = True
 
 ALLOWED_HOSTS = ['79557a63c374.ngrok.io']
 
-#'zeyu2001.pythonanywhere.com'
 # Application definition
 
 INSTALLED_APPS = [
